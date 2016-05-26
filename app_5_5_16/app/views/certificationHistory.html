@@ -1,0 +1,64 @@
+<nav-menu>
+</nav-menu>
+<div class="panel panel-default">
+
+
+
+    <div class="panel-body" style="overflow:auto;">
+
+        <!--<div style="border: solid 2px darkgrey">-->
+        <form novalidate name="certificationHistoryForm">
+            <table class="table  table-condensed table-bordered table-striped table-hover">
+                <thead style="background-color: darkorange; color : white">
+                    <tr>
+                        
+                        <!--<th data-ng-click="order('RequestId')">
+                            <a href="#" data-ng-click="order('RequestId')"> Request Id
+                                <span class="{{Header[0]}}"></span>
+                            </a>
+                        </th>-->
+                        
+                        <th data-ng-click="order('RequestId')">Request Id</th>
+                        <!--  <th>Requested Date</th>-->
+                        <!--<th>Name</th>-->
+                        <th data-ng-click="order('CertificationCategoryTitle')">Technology</th>
+                        <th data-ng-click="order('certificationDetails')">Certification Details</th>
+                        <th data-ng-click="order('Status')">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr data-ng-repeat="data in FilteredCertificationHistoryList">
+                        <td>
+                            <button class="btn btn-link" data-ng-click="openPopUp($index)">{{data.RequestId}}</button>
+                        </td>
+
+                        <td>
+                            {{data.CertificationCategoryTitle}}
+                        </td>
+                        <td>
+                            {{data.certificationDetails}}
+                        </td>
+                        <td  ng-class="{green : data.Status === 'Approve',red : data.Status === 'Reject', yellow : data.Status === 'Pending'}">
+                            {{data.Status}}
+                        </td>
+                        <div class="alert alert-info" data-ng-show="approvalList.length === 0">
+                            <strong>Info!</strong> No certifications available against your skills.
+                        </div>
+                    </tr>
+
+                </tbody>
+            </table>
+            <!-- <pagination ng-model="currentPage" total-items="CertificationHistoryList.length" max-size="maxSize" boundary-links="true">
+            </pagination>-->
+            <!-- <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>-->
+
+        </form>
+        <!--</div>-->
+
+    </div>
+    <div class="panel-footer">
+        <span style="color: white">© Copyright 2015. Diaspark Infotech Pvt. Ltd.</span>
+    </div>
+</div>

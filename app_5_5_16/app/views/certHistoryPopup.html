@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" data-ng-click="closePopUp()">&times;</button>
+    <h4 class="modal-title">Certification History</h4>
+</div>
+
+<div class="modal-body">
+    <form name="CertificationDetailsForm" role="form" class="form-horizontal" novalidate>
+        <div data-ng-show="message" class='alert alert-danger'>
+            <!--<strong>Sorry! </strong> Approved and Rejected Certificates could not be edited.-->
+            {{message}}
+        </div>
+        <div class='alert alert-info'>
+            <strong> {{request.RequestId}}'s status is "{{request.Status}}" : {{infoMessage}} </strong>
+            <!--Approved and Rejected Certificates could not be edited.-->
+        </div>
+
+        <div class="form-group" style="padding-left : 5%">
+            <input ng-show="canEdit" type="button" class="btn btn-primary" value="Edit" data-ng-click="onSubmit()" />
+            <input id="okBtn" type="button" class="btn btn-warning" value="Cancel" data-ng-click="onCancel();" />
+
+        </div>
+    </form>
+</div>

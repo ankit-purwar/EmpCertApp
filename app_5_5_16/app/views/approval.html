@@ -1,0 +1,65 @@
+<nav-menu>
+</nav-menu>
+<div class="panel panel-default">
+    <div class="panel-body" style="overflow:auto;">
+        <!--<div style="border: solid 2px darkgrey">-->
+            <form novalidate name="approvalForm">
+                <table class="table table-bordered table-hover">
+                    <thead style="background-color: darkorange; color : white">
+                        <tr>
+                            <th data-ng-click="order('RequestId')">Request Id</th>
+                            <th data-ng-click="order('RequestDate')">Requested Date</th>
+                            <th data-ng-click="order('name')">Name</th>
+                            <th data-ng-click="order('CertificationCategoryTitle')">Technology</th>
+                            <th data-ng-click="order('certificationDetails')">Certification Details</th>
+                            <th data-ng-click="order('Status')">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr data-ng-repeat="data in approvalList" >
+                            <td>
+                                <button class="btn btn-link" data-ng-click="openPopUp($index)">{{data.RequestId}}</button>
+                            </td>
+                            <td>
+                                {{data.RequestDate | date:'MM/dd/yyyy'}}
+                            </td>
+                            <td>
+                                {{data.name}}
+                            </td>
+                            <td>
+                                {{data.CertificationCategoryTitle}}
+                            </td>
+                            <td>
+                                {{data.certificationDetails}}
+                            </td>
+                            <td ng-class="{green : data.Status === 'Approve',red : data.Status === 'Reject', yellow : data.Status === 'Pending'}">
+                                {{data.Status}}
+                            </td>
+                            <div class="alert alert-info" data-ng-show="approvalList.length === 0">
+                                <strong>Info!</strong> No certifications available against your skills.
+                            </div>
+                        </tr>
+                     
+                    </tbody>
+                </table>
+            </form>
+        <!--</div>-->
+    </div>
+    <div class="panel-footer">
+        <span style="color: white">© Copyright 2015. Diaspark Infotech Pvt. Ltd.</span>
+    </div>
+</div>
+
+
+<!--
+<td>
+    {{data.amount | currency}}
+</td>
+<td>
+    {{data.Remarks}}
+</td>
+<td>
+    <label class="radio-inline"><input type="radio" name="approve" data-ng-model="IsApprove" ng-checked="onCheck()" />Approve</label>
+    <label class="radio-inline"><input type="radio" name="approve" data-ng-model="IsRejected" ng-checked="onCheck()" />Reject</label>
+</td>-->
